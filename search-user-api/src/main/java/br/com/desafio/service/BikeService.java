@@ -34,7 +34,7 @@ public class BikeService {
 
 		LOG.info("Bike {}", bikeFilter.toString());
 		
-		BikeDTO bikeDTO = bikeClient.request(bikeFilter);
+		BikeDTO bikeDTO = bikeClient.request(bikeFilter.getDistance());
 		
 		LOG.info("Bike okay!");
 		return bikeDTO;
