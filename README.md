@@ -63,7 +63,7 @@ Spring Admin. A sua configuração é bem simples e sua interface é bastante am
 
 - Detalhes de consumo e uso de memória
 
-<img src="img/http://monitor02.png">
+<img src="img/monitor02.png">
 
 ## Executar o projeto
 
