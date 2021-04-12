@@ -46,11 +46,9 @@ Exemplo de arquitetura de microserviços utilizando Spring Cloud e Netflix OSS
 - Responsável por facilitar a comunicação entre 1 ou mais microserviços. Os microserviços se registram no Eureka e passam a ser chamado pelos demais através de sua alias.
 Este ponto ajuda bastante quando temos vários microserviços na solução e bem como mais de uma instância.
 
-- No exemplo abaixo é possível identificar dois serviços registrados no Eureka. Com a arquitetura proposta é possível duplicar o serviços de (search-user-api e search-client-api, ...) caracterizando uma escalabilidade horizontal
+- No exemplo abaixo é possível identificar os serviços registrados no Eureka. Com a arquitetura proposta é possível duplicar o serviços de (search-user-api e search-client-api, ...), caracterizando uma escalabilidade horizontal
 
-- Na imagem abaixo é possível constatar 3 microserviços de pagamento rodando nas portas: 8082,9991 e 9992
-
-<img src="img/eureka3.png">
+<img src="img/eureka.png">
 
 ## Monitoramento
 
