@@ -23,10 +23,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import br.com.desafio.controller.dto.BikeDTO;
 import br.com.desafio.controller.dto.UserDTO;
+import br.com.desafio.controller.filter.BikeFilter;
 import br.com.desafio.controller.form.UserForm;
 import br.com.desafio.model.User;
 import br.com.desafio.repository.UserRepository;
+import br.com.desafio.service.BikeService;
 
 /**
  * Users endpoint
@@ -38,6 +41,9 @@ public class UserController {
 
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private BikeService bikeService;
 
 	/**
 	 * List all users paginated
@@ -142,5 +148,11 @@ public class UserController {
 
 		return ResponseEntity.notFound().build();
 
+	}
+	
+	@GetMapping("/searchUserBicycle")
+	public ResponseEntity<?> searchBicycle(BikeFilter bikeFilter) {
+		BikeDTO bikeDTO = bikeService.searchBikeClient(bikeFilter);
+		return bikeDTO != null ? ResponseEntity.ok(bikeDTO) : ResponseEntity.notFound().build();
 	}
 }

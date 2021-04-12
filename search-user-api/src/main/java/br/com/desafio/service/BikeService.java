@@ -30,7 +30,7 @@ public class BikeService {
 	 * @param BikeFilter
 	 */
 	@HystrixCommand
-	public BikeDTO makeBike(BikeFilter bikeFilter) {
+	public BikeDTO searchBikeClient(BikeFilter bikeFilter) {
 
 		LOG.info("Bike {}", bikeFilter.toString());
 		
