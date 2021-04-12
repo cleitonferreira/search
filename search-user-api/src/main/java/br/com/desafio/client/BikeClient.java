@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.com.desafio.controller.dto.BikeDTO;
+import br.com.desafio.controller.filter.BikeFilter;
 
 /**
  * Interface responsible to connect Bike microservice
@@ -16,5 +17,5 @@ public interface BikeClient {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/searchBicycle", consumes = "application/json")
-	Long create(@RequestBody BikeDTO bikeDTO);
+	BikeDTO request(@RequestBody BikeFilter bikeFilter);
 }

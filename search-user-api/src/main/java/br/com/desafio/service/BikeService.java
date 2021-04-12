@@ -9,6 +9,7 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 import br.com.desafio.client.BikeClient;
 import br.com.desafio.controller.dto.BikeDTO;
+import br.com.desafio.controller.filter.BikeFilter;
 
 /**
  * This class responsible to provide services about donation
@@ -24,29 +25,19 @@ public class BikeService {
 	private BikeClient bikeClient;
 
 	/**
-	 * Responsible to call maicroservice payment
+	 * Responsible to call maicroservice
 	 * 
-	 * @param bikeDTO
-	 * @return return uuid payment.
+	 * @param BikeFilter
 	 */
-	@HystrixCommand(fallbackMethod = "makeBikeFallback")
-	public Long makeBike(BikeDTO bikeDTO) {
+	@HystrixCommand
+	public BikeDTO makeBike(BikeFilter bikeFilter) {
 
-		LOG.info("Bike {}", bikeDTO.toString());
+		LOG.info("Bike {}", bikeFilter.toString());
 		
-		Long uuid = bikeClient.create(bikeDTO);
+		BikeDTO bikeDTO = bikeClient.request(bikeFilter);
 		
 		LOG.info("Bike okay!");
-		return uuid;
-	}
-	
-	/**
-	 * This method responsible to return fallback in make bike
-	 * @param bikeDTO
-	 * @return
-	 */
-	public Long makeBikeFallback(BikeDTO bikeDTO) {
-		return 0L;
+		return bikeDTO;
 	}
 
 }

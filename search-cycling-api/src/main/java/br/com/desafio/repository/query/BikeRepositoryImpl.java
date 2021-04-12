@@ -28,9 +28,9 @@ public class BikeRepositoryImpl implements BikeRepositoryQuery {
 		
 		criteria.select(root);
 		
-		if (!StringUtils.isEmpty(bikeFilter.getModality())) {
+		/*if (!StringUtils.isEmpty(bikeFilter.getModality())) {
 			criteria.where(builder.equal(root.get("modality"), bikeFilter.getModality()));
-		}
+		}*/
 		
 		if (!StringUtils.isEmpty(bikeFilter.getDistance())) {	
 			Expression<String> path = root.get("distance");
@@ -51,9 +51,9 @@ public class BikeRepositoryImpl implements BikeRepositoryQuery {
 		
 		criteria.select(root);
 		
-		if (!StringUtils.isEmpty(bikeFilter.getModality())) {
+		/*if (!StringUtils.isEmpty(bikeFilter.getModality())) {
 			criteria.where(builder.equal(root.get("modality"), bikeFilter.getModality()));
-		}
+		}*/
 		
 		if (!StringUtils.isEmpty(bikeFilter.getDistance())) {	
 			Expression<String> path = root.get("distance");

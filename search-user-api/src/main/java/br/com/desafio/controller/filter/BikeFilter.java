@@ -1,11 +1,10 @@
-package br.com.desafio.repository;
+package br.com.desafio.controller.filter;
 
 import lombok.Data;
 
 @Data
 public class BikeFilter {
 
-	//private String modality;
 	private String distance;
 	
 }
